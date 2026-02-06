@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Smart Kids Games — ألعاب إنجليزي</title>
+  <meta name="description" content="ألعاب تفاعلية لتعليم الإنجليزية للأطفال — Smart Kids With Connect" />
+
+  <style>
+    :root{
+      --bg1:#f7fbff;
+      --bg2:#fff7fb;
+      --card:#ffffffcc;
+      --ink:#142033;
+      --muted:#5b6b85;
+      --brand1:#6d28d9;
+      --brand2:#2563eb;
+      --good:#16a34a;
+      --bad:#dc2626;
+      --shadow: 0 12px 32px rgba(16,24,40,.14);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, #dbeafe 0%, transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, #fde2e8 0%, transparent 55%),
+        linear-gradient(180deg, var(--bg1), var(--bg2));
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+
+    /* Header */
+    .top{
+      max-width:1200px;
+      margin:24px auto 0;
+      padding:0 16px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 14px;
+      border-radius:999px;
+      background:#fff;
+      box-shadow:var(--shadow);
+    }
+    .logo{
+      width:42px;height:42px;border-radius:14px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
+      display:grid;place-items:center;
+      color:#fff;font-weight:900;
+    }
+    .brand h1{
+      margin:0;
+      font-size:16px;
+      line-height:1.1;
+    }
+    .brand small{color:var(--muted);font-weight:600}
+
+    .actions{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .btn{
+      border:0;
+      padding:12px 14px;
+      border-radius:999px;
+      background:#fff;
+      box-shadow:var(--shadow);
+      cursor:pointer;
+      font-weight:800;
+      color:var(--ink);
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      text-decoration:none;
+      user-select:none;
+      transition: transform .12s ease, box-shadow .12s ease;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
+      color:#fff;
+    }
+    .btn.ghost{
+      background:#ffffffc7;
+      backdrop-filter: blur(6px);
+    }
+
+    /* Layout */
+    .wrap{
+      max-width:1200px;
+      margin:18px auto 80px;
+      padding:0 16px;
+    }
+
+    /* Make it “بالعرض” (landscape-friendly): wide hero + 2 columns on desktop */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){
+      .hero{grid-template-columns:1fr}
+    }
+
+    .panel{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .panel:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(260px 160px at 10% 0%, rgba(109,40,217,.22), transparent 60%),
+        radial-gradient(260px 160px at 90% 10%, rgba(37,99,235,.18), transparent 55%),
+        radial-gradient(260px 200px at 50% 120%, rgba(251,146,60,.18), transparent 60%);
+      pointer-events:none;
+    }
+    .panel > *{position:relative}
+
+    .titleRow{
+      display:flex; justify-content:space-between; align-items:flex-start; gap:12px;
+      flex-wrap:wrap;
+    }
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#ffffffd9;
+      font-weight:900;
+      box-shadow: 0 8px 18px rgba(0,0,0,.08);
+      width:max-content;
+    }
+    .hero h2{
+      margin:12px 0 6px;
+      font-size:34px;
+      letter-spacing:-.5px;
+    }
+    .hero p{margin:0;color:var(--muted);font-weight:650;line-height:1.6}
+
+    .chips{
+      margin-top:14px;
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .chip{
+      padding:10px 12px;
+      border-radius:999px;
+      background:#fff;
+      box-shadow: 0 10px 20px rgba(0,0,0,.08);
+      font-weight:900;
+      color:var(--ink);
+      display:inline-flex;
+      gap:8px; align-items:center;
+    }
+
+    /* Game cards */
+    .sectionTitle{
+      margin:18px 0 10px;
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      flex-wrap:wrap;
+    }
+    .sectionTitle h3{
+      margin:0;
+      font-size:22px;
+      font-weight:1000;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns:1fr}
+    }
+    .gameCard{
+      background:#fff;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:16px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      overflow:hidden;
+      position:relative;
+    }
+    .gameCard:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(260px 160px at 0% 0%, rgba(109,40,217,.15), transparent 60%),
+        radial-gradient(260px 160px at 100% 0%, rgba(37,99,235,.12), transparent 60%);
+      pointer-events:none;
+    }
+    .gameCard > *{position:relative}
+
+    .left{
+      display:flex; gap:12px; align-items:center;
+    }
+    .icon{
+      width:56px;height:56px;border-radius:18px;
+      background: linear-gradient(135deg, #f97316, #ec4899);
+      display:grid; place-items:center;
+      color:#fff; font-size:26px;
+      box-shadow: 0 10px 24px rgba(0,0,0,.14);
+      flex:0 0 auto;
+    }
+    .meta b{display:block;font-size:18px}
+    .meta small{color:var(--muted);font-weight:700}
+
+    .play{
+      border:0;
+      padding:12px 14px;
+      border-radius:14px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
+      color:#fff;
+      font-weight:1000;
+      cursor:pointer;
+      box-shadow: 0 12px 26px rgba(37,99,235,.22);
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      transition: transform .12s ease;
+      white-space:nowrap;
+    }
+    .play:hover{transform:translateY(-1px)}
+    .play.secondary{
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+    }
+
+    /* Modal game */
+    .modalBack{
+      position:fixed; inset:0;
+      background: rgba(16,24,40,.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+      z-index:9999;
+    }
+    .modal{
+      width:min(980px, 100%);
+      background:#fff;
+      border-radius:24px;
+      box-shadow: 0 30px 80px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+    .modalHeader{
+      padding:14px 16px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
+      color:#fff;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .modalHeader b{font-size:16px}
+    .close{
+      border:0;
+      padding:10px 12px;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:1000;
+      background:#ffffff1f;
+      color:#fff;
+    }
+    .modalBody{
+      padding:16px;
+      display:grid;
+      grid-template-columns: 1fr .9fr;
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .modalBody{grid-template-columns:1fr}
+    }
+
+    .board{
+      border-radius:18px;
+      background: linear-gradient(180deg, #f8fafc, #ffffff);
+      border:1px solid rgba(15,23,42,.08);
+      padding:14px;
+      min-height:340px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .hud{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .pill{
+      background:#fff;
+      border-radius:999px;
+      padding:10px 12px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+      font-weight:1000;
+      display:flex;
+      gap:10px;
+      align-items:center;
+    }
+    .pill .n{color:var(--brand1)}
+    .question{
+      background:#fff;
+      border-radius:18px;
+      padding:14px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.10);
+      border:1px solid rgba(15,23,42,.06);
+    }
+    .question h4{margin:0 0 10px;font-size:18px}
+    .opts{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    @media (max-width: 520px){
+      .opts{grid-template-columns:1fr}
+    }
+    .opt{
+      border:2px solid rgba(37,99,235,.14);
+      background:#fff;
+      border-radius:16px;
+      padding:12px;
+      font-weight:900;
+      cursor:pointer;
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+      transition: transform .08s ease, border-color .08s ease;
+      text-align:center;
+    }
+    .opt:hover{transform:translateY(-1px); border-color: rgba(37,99,235,.38)}
+    .opt.good{border-color: rgba(22,163,74,.55); background: rgba(22,163,74,.06)}
+    .opt.bad{border-color: rgba(220,38,38,.55); background: rgba(220,38,38,.06)}
+
+    .side{
+      border-radius:18px;
+      background: linear-gradient(180deg, #fff7ed, #ffffff);
+      border:1px solid rgba(15,23,42,.08);
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:340px;
+    }
+    .tip{
+      background:#fff;
+      border-radius:18px;
+      padding:14px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.10);
+      border:1px solid rgba(15,23,42,.06);
+    }
+    .tip h4{margin:0 0 8px;font-size:16px}
+    .tip p{margin:0;color:var(--muted);font-weight:650;line-height:1.6}
+    .rowBtns{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:auto;
+    }
+    .miniBtn{
+      border:0;
+      padding:12px 14px;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:1000;
+      background:#111827;
+      color:#fff;
+      box-shadow: 0 12px 26px rgba(0,0,0,.22);
+    }
+    .miniBtn.alt{
+      background: linear-gradient(135deg, #f97316, #ec4899);
+    }
+
+    /* Footer */
+    .foot{
+      max-width:1200px;
+      margin:18px auto 26px;
+      padding:0 16px;
+      color:var(--muted);
+      font-weight:700;
+      text-align:center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <div class="brand">
+      <div class="logo">SK</div>
+      <div>
+        <h1>SMART KIDS WITH CONNECT</h1>
+        <small>Games • Learn • Play</small>
+      </div>
+    </div>
+
+    <div class="actions">
+      <a class="btn ghost" href="./index.html" title="Home">🏠 الرئيسية</a>
+      <a class="btn primary" href="https://www.youtube.com/@hananeidhusseinmohammed6743" target="_blank" rel="noreferrer">📺 قناة اليوتيوب</a>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div class="panel">
+        <div class="titleRow">
+          <div class="kicker">🎮 ألعاب إنجليزي للأطفال</div>
+          <div class="kicker">⭐ تفاعلي + بسيط</div>
+        </div>
+
+        <h2>العب وتعلّم — خطوة بخطوة ✨</h2>
+        <p>اختاري لعبة، جاوبي على الأسئلة، واجمعي نقاط! الألعاب هنا مصممة للأطفال: واضحة، سريعة، وممتعة.</p>
+
+        <div class="chips">
+          <div class="chip">✅ بدون تسجيل</div>
+          <div class="chip">📱 موبايل + كمبيوتر</div>
+          <div class="chip">🎯 قواعد + كلمات</div>
+          <div class="chip">🏆 نقاط ومستويات</div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="sectionTitle">
+          <h3>اختر لعبة</h3>
+        </div>
+
+        <div class="grid">
+          <div class="gameCard">
+            <div class="left">
+              <div class="icon">🕒</div>
+              <div class="meta">
+                <b>Past Simple — الماضي البسيط</b>
+                <small>اختاري الإجابة الصحيحة (10 أسئلة)</small>
+              </div>
+            </div>
+            <button class="play" id="openPast">▶ العب الآن</button>
+          </div>
+
+          <div class="gameCard">
+            <div class="left">
+              <div class="icon" style="background:linear-gradient(135deg,#0ea5e9,#22c55e)">✅</div>
+              <div class="meta">
+                <b>Present Simple — المضارع البسيط</b>
+                <small>قريبًا (سأضيفها لك فورًا)</small>
+              </div>
+            </div>
+            <button class="play secondary" disabled title="Coming soon">⏳ قريبًا</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Past Simple Game -->
+  <div class="modalBack" id="modalBack" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modalHeader">
+        <b>🕒 لعبة الماضي البسيط (Past Simple)</b>
+        <button class="close" id="closeModal">✖ إغلاق</button>
+      </div>
+
+      <div class="modalBody">
+        <div class="board">
+          <div class="hud">
+            <div class="pill">⭐ النقاط: <span class="n" id="score">0</span></div>
+            <div class="pill">🧩 السؤال: <span class="n" id="qIndex">1</span>/<span id="qTotal">10</span></div>
+            <div class="pill">🔥 سلسلة صح: <span class="n" id="streak">0</span></div>
+          </div>
+
+          <div class="question">
+            <h4 id="qText">...</h4>
+            <div class="opts" id="opts"></div>
+          </div>
+
+          <div class="hud">
+            <div class="pill" id="statusPill">🎯 اختاري الإجابة!</div>
+            <div class="rowBtns">
+              <button class="miniBtn" id="nextBtn" disabled>التالي ➜</button>
+              <button class="miniBtn alt" id="restartBtn">إعادة اللعب 🔁</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="side">
+          <div class="tip">
+            <h4>📌 تلميحة سريعة</h4>
+            <p>
+              الماضي البسيط يستخدم مع أحداث انتهت في الماضي.
+              <br>مثل: <b>yesterday, last week, ago</b>
+              <br>والأفعال لها شكل ثاني: <b>go → went</b>
+            </p>
+          </div>
+
+          <div class="tip">
+            <h4>🏆 كيف تكسبين نقاط أكثر؟</h4>
+            <p>
+              كل إجابة صحيحة = نقاط.
+              <br>لو عملتي سلسلة صحيحة (Streak) نقاطك تزيد!
+            </p>
+          </div>
+
+          <div class="tip">
+            <h4>🎉 بعد ما تخلصي</h4>
+            <p id="finalMsg">هتطلع لك النتيجة في النهاية ✨</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">© 2026 Smart Kids With Connect — Games</div>
+
+  <script>
+    // --- Past Simple Questions (Kid-friendly) ---
+    const QUESTIONS = [
+      { q: "Yesterday, I ___ to school.", a: ["go", "went", "gone", "going"], c: 1 },
+      { q: "Last night, we ___ a movie.", a: ["watch", "watched", "watches", "watching"], c: 1 },
+      { q: "My dad ___ me a story.", a: ["tell", "told", "tells", "telling"], c: 1 },
+      { q: "Two days ago, I ___ my homework.", a: ["finish", "finished", "finishes", "finishing"], c: 1 },
+      { q: "She ___ a cake last week.", a: ["make", "made", "makes", "making"], c: 1 },
+      { q: "They ___ in the park yesterday.", a: ["play", "played", "plays", "playing"], c: 1 },
+      { q: "I ___ breakfast at 7 a.m. yesterday.", a: ["eat", "ate", "eats", "eating"], c: 1 },
+      { q: "He ___ a letter to his friend.", a: ["write", "wrote", "writes", "writing"], c: 1 },
+      { q: "We ___ happy after the game.", a: ["are", "were", "is", "be"], c: 1 },
+      { q: "She ___ her keys yesterday.", a: ["find", "found", "finds", "finding"], c: 1 },
+    ];
+
+    // --- Elements ---
+    const modalBack = document.getElementById("modalBack");
+    const openPast = document.getElementById("openPast");
+    const closeModal = document.getElementById("closeModal");
+
+    const scoreEl = document.getElementById("score");
+    const streakEl = document.getElementById("streak");
+    const qIndexEl = document.getElementById("qIndex");
+    const qTotalEl = document.getElementById("qTotal");
+    const qTextEl = document.getElementById("qText");
+    const optsEl = document.getElementById("opts");
+    const statusPill = document.getElementById("statusPill");
+    const nextBtn = document.getElementById("nextBtn");
+    const restartBtn = document.getElementById("restartBtn");
+    const finalMsg = document.getElementById("finalMsg");
+
+    qTotalEl.textContent = QUESTIONS.length;
+
+    // --- State ---
+    let idx = 0;
+    let score = 0;
+    let streak = 0;
+    let locked = false;
+
+    function openModal(){
+      modalBack.style.display = "flex";
+      modalBack.setAttribute("aria-hidden", "false");
+      restart();
+    }
+    function closeIt(){
+      modalBack.style.display = "none";
+      modalBack.setAttribute("aria-hidden", "true");
+    }
+
+    openPast.addEventListener("click", openModal);
+    closeModal.addEventListener("click", closeIt);
+    modalBack.addEventListener("click", (e)=>{ if(e.target === modalBack) closeIt(); });
+    document.addEventListener("keydown", (e)=>{ if(e.key === "Escape" && modalBack.style.display === "flex") closeIt(); });
+
+    function render(){
+      locked = false;
+      nextBtn.disabled = true;
+      statusPill.textContent = "🎯 اختاري الإجابة!";
+      statusPill.style.color = "#142033";
+      qIndexEl.textContent = (idx + 1).toString();
+      scoreEl.textContent = score.toString();
+      streakEl.textContent = streak.toString();
+
+      const item = QUESTIONS[idx];
+      qTextEl.textContent = item.q;
+      optsEl.innerHTML = "";
+
+      item.a.forEach((text, i)=>{
+        const b = document.createElement("button");
+        b.className = "opt";
+        b.type = "button";
+        b.textContent = text;
+        b.addEventListener("click", ()=> choose(i, b));
+        optsEl.appendChild(b);
+      });
+    }
+
+    function choose(i, btn){
+      if(locked) return;
+      locked = true;
+
+      const correct = QUESTIONS[idx].c;
+
+      // mark all
+      [...optsEl.children].forEach((el, j)=>{
+        if(j === correct) el.classList.add("good");
+      });
+
+      if(i === correct){
+        btn.classList.add("good");
+        streak += 1;
+        // score: base 10 + streak bonus
+        score += 10 + Math.min(streak, 5);
+        statusPill.textContent = "✅ ممتاز! إجابة صحيحة!";
+        statusPill.style.color = "#16a34a";
+      }else{
+        btn.classList.add("bad");
+        streak = 0;
+        statusPill.textContent = "❌ جرّبي تاني! الإجابة الصح ملوّنة بالأخضر.";
+        statusPill.style.color = "#dc2626";
+      }
+
+      scoreEl.textContent = score.toString();
+      streakEl.textContent = streak.toString();
+      nextBtn.disabled = false;
+
+      // finish?
+      if(idx === QUESTIONS.length - 1){
+        nextBtn.textContent = "إنهاء ✅";
+      }else{
+        nextBtn.textContent = "التالي ➜";
+      }
+    }
+
+    nextBtn.addEventListener("click", ()=>{
+      if(idx < QUESTIONS.length - 1){
+        idx += 1;
+        render();
+      }else{
+        // end
+        locked = true;
+        nextBtn.disabled = true;
+        qTextEl.textContent = "🎉 خلصت اللعبة!";
+        optsEl.innerHTML = "";
+        statusPill.textContent = "🏆 نتيجتك النهائية: " + score + " نقطة";
+        statusPill.style.color = "#6d28d9";
+        finalMsg.textContent = "ممتاز! تحبي أضيف لعبة المضارع البسيط كمان؟";
+      }
+    });
+
+    function restart(){
+      idx = 0;
+      score = 0;
+      streak = 0;
+      finalMsg.textContent = "هتطلع لك النتيجة في النهاية ✨";
+      render();
+    }
+    restartBtn.addEventListener("click", restart);
+  </script>
+</body>
+</html>
