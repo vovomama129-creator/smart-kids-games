@@ -2,318 +2,251 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Smart Kids Games | ألعاب الإنجليزية</title>
-  <meta name="description" content="ألعاب تفاعلية لتعلم الإنجليزية للأطفال مع Miss Hanan." />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Smart Kids With Connect</title>
+  <meta name="description" content="روابط مجموعات الواتساب + قوائم تشغيل يوتيوب + صفحة الألعاب التعليمية للأطفال" />
+
   <style>
     :root{
-      --bg1:#0ea5e9;
-      --bg2:#a855f7;
-      --card:#ffffff;
       --ink:#0f172a;
-      --muted:#475569;
-      --ok:#22c55e;
-      --bad:#ef4444;
-      --accent:#f43f5e;
-      --shadow: 0 18px 55px rgba(0,0,0,.14);
-      --shadow2: 0 10px 30px rgba(0,0,0,.10);
-      --r: 22px;
+      --muted:#51607a;
+      --shadow: 0 14px 40px rgba(15,23,42,.16);
+      --radius: 22px;
+      --brand1:#6d28d9;
+      --brand2:#2563eb;
+      --hot1:#ef4444;
+      --hot2:#f97316;
+      --good1:#22c55e;
+      --good2:#06b6d4;
+      --card:#ffffffcc;
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color:var(--ink);
       background:
-        radial-gradient(900px 500px at 10% 10%, rgba(255,255,255,.35), transparent 60%),
-        radial-gradient(900px 500px at 90% 30%, rgba(255,255,255,.25), transparent 60%),
-        linear-gradient(135deg, var(--bg1), var(--bg2));
+        radial-gradient(1200px 600px at 10% 10%, #dbeafe 0%, transparent 60%),
+        radial-gradient(900px 500px at 90% 18%, #ffe4e6 0%, transparent 55%),
+        radial-gradient(900px 520px at 50% 110%, #dcfce7 0%, transparent 60%),
+        linear-gradient(180deg,#f7fbff,#fff7fb);
       min-height:100vh;
-    }
-    a{color:inherit}
-    .wrap{max-width:1100px;margin:0 auto;padding:18px 14px 36px}
-    .topbar{
-      display:flex;gap:12px;align-items:center;justify-content:space-between;
-      color:#fff;
-      padding:14px 14px;
-    }
-    .brand{
-      display:flex;gap:12px;align-items:center;
-      font-weight:1000;
-      letter-spacing:.2px;
-    }
-    .logo{
-      width:42px;height:42px;border-radius:14px;
-      background:rgba(255,255,255,.18);
-      display:grid;place-items:center;
-      box-shadow:0 10px 22px rgba(0,0,0,.15);
-      backdrop-filter: blur(6px);
-    }
-    .pillbar{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
-    .pill{
-      background:rgba(255,255,255,.16);
-      color:#fff;
-      padding:8px 12px;
-      border-radius:999px;
-      font-weight:900;
-      box-shadow:0 8px 18px rgba(0,0,0,.12);
-      border:1px solid rgba(255,255,255,.18);
-      backdrop-filter: blur(6px);
-      font-size:14px;
-      white-space:nowrap;
+      overflow-x:hidden;
     }
 
-    .hero{
-      background:rgba(255,255,255,.92);
-      border-radius:calc(var(--r) + 8px);
+    .wrap{max-width:1200px;margin:22px auto 80px;padding:0 16px}
+
+    .top{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      margin-bottom:16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      background:#fff;
+      border-radius:999px;
+      padding:12px 14px;
       box-shadow:var(--shadow);
-      padding:20px;
-      overflow:hidden;
-      position:relative;
     }
-    .hero::before{
-      content:"";
-      position:absolute;inset:-120px -120px auto auto;
-      width:260px;height:260px;border-radius:999px;
-      background: radial-gradient(circle at 30% 30%, rgba(244,63,94,.35), transparent 60%);
-      filter: blur(2px);
+    .logo{
+      width:44px;height:44px;border-radius:16px;
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
+      display:grid;place-items:center;
+      color:#fff;font-weight:1000;
+      letter-spacing:.5px;
     }
-    .hero::after{
-      content:"";
-      position:absolute;inset:auto auto -140px -140px;
-      width:320px;height:320px;border-radius:999px;
-      background: radial-gradient(circle at 35% 35%, rgba(14,165,233,.35), transparent 60%);
-    }
-    .heroGrid{
-      position:relative;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:18px;
-      align-items:center;
-    }
-    @media (max-width: 920px){
-      .heroGrid{grid-template-columns:1fr}
-    }
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(26px, 3.2vw, 44px);
-      line-height:1.1;
-      font-weight:1000;
-    }
-    .sub{
-      margin:0 0 14px;
-      color:var(--muted);
-      font-weight:800;
-      font-size:16px;
-    }
-    .ctaRow{display:flex;gap:10px;flex-wrap:wrap}
+    .brand b{display:block;font-size:14px}
+    .brand small{color:var(--muted);font-weight:700}
+
+    .actions{display:flex; gap:10px; flex-wrap:wrap}
     .btn{
       border:0;
       padding:12px 14px;
-      border-radius:16px;
-      font-weight:1000;
+      border-radius:999px;
+      background:#fff;
+      box-shadow:var(--shadow);
       cursor:pointer;
-      box-shadow:var(--shadow2);
+      font-weight:900;
+      color:var(--ink);
       text-decoration:none;
       display:inline-flex;
       align-items:center;
       gap:10px;
-      transition:.15s transform ease, .15s filter ease;
+      transition: transform .12s ease;
+      user-select:none;
     }
-    .btn:hover{transform:translateY(-2px);filter:brightness(1.02)}
-    .btnPrimary{background:linear-gradient(135deg,#f43f5e,#fb7185);color:#fff}
-    .btnDark{background:#0f172a;color:#fff}
-    .miniBadges{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
-    .badge{
-      background:#f1f5f9;
-      color:#0f172a;
-      padding:8px 10px;
-      border-radius:999px;
-      font-weight:900;
-      font-size:13px;
-      border:1px solid #e2e8f0;
-    }
-    .cardRight{
-      background:linear-gradient(180deg,#fff, #f8fafc);
-      border-radius:22px;
-      padding:16px;
-      box-shadow:var(--shadow2);
-      border:1px solid #e2e8f0;
-    }
-    .cardRight h3{margin:0 0 8px;font-weight:1000}
-    .cardRight p{margin:0;color:#475569;font-weight:800;line-height:1.6}
-    .sectionTitle{
-      margin:18px 0 10px;
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
       color:#fff;
-      font-weight:1000;
-      font-size:22px;
-      display:flex;
-      align-items:center;
-      gap:10px;
+    }
+    .btn.hot{
+      background: linear-gradient(135deg, var(--hot1), var(--hot2));
+      color:#fff;
     }
 
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    @media (max-width: 980px){ .grid{grid-template-columns: repeat(2, 1fr);} }
-    @media (max-width: 640px){ .grid{grid-template-columns: 1fr;} }
-
-    .gameCard{
-      background:rgba(255,255,255,.92);
-      border-radius:22px;
-      box-shadow:var(--shadow2);
-      padding:14px;
-      border:1px solid rgba(255,255,255,.55);
-      overflow:hidden;
-    }
-    .gameCard .tag{
-      display:inline-flex;gap:8px;align-items:center;
-      background:#0f172a;color:#fff;
-      padding:8px 10px;border-radius:999px;
-      font-weight:1000;font-size:12px;
-    }
-    .gameCard h4{margin:10px 0 6px;font-size:18px;font-weight:1000}
-    .gameCard p{margin:0;color:#475569;font-weight:800;line-height:1.6}
-    .playBtn{
-      margin-top:12px;
-      width:100%;
-      justify-content:center;
-    }
-
-    /* Modal */
-    .overlay{
-      position:fixed;inset:0;
-      background:rgba(2,6,23,.55);
-      display:none;
-      align-items:center;
-      justify-content:center;
+    /* HERO (بالعرض) */
+    .hero{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
       padding:18px;
-      z-index:999;
-    }
-    .modal{
-      width:min(980px, 100%);
-      background:linear-gradient(180deg,#fff,#f8fafc);
-      border-radius:26px;
-      box-shadow:0 30px 80px rgba(0,0,0,.35);
       overflow:hidden;
-      border:1px solid #e2e8f0;
+      position:relative;
     }
-    .modalTop{
-      padding:14px 14px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:10px;
-      background:linear-gradient(135deg,#0ea5e9,#a855f7);
-      color:#fff;
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(320px 180px at 10% 0%, rgba(109,40,217,.18), transparent 60%),
+        radial-gradient(320px 200px at 90% 10%, rgba(37,99,235,.15), transparent 60%),
+        radial-gradient(420px 240px at 50% 120%, rgba(34,197,94,.12), transparent 60%);
+      pointer-events:none;
     }
-    .modalTop .title{
-      font-weight:1000;
-      font-size:18px;
-      display:flex;align-items:center;gap:10px;
-    }
-    .closeBtn{
-      background:rgba(255,255,255,.18);
-      border:1px solid rgba(255,255,255,.25);
-      color:#fff;
-      padding:10px 12px;
-      border-radius:14px;
-      cursor:pointer;
-      font-weight:1000;
-    }
-    .modalBody{padding:14px}
-    .gameWrap{
+    .hero > *{position:relative}
+
+    .heroGrid{
       display:grid;
-      grid-template-columns: 1fr .45fr;
-      gap:12px;
+      grid-template-columns: 1.25fr .75fr;  /* شكل عرض */
+      gap:14px;
+      align-items:stretch;
     }
-    @media (max-width: 900px){ .gameWrap{grid-template-columns:1fr} }
-    .panel{
-      background:#fff;
-      border-radius:20px;
-      box-shadow:var(--shadow2);
-      border:1px solid #e2e8f0;
-      padding:14px;
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns:1fr}
     }
-    .hud{
-      display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between;
-      margin-bottom:10px;
-    }
-    .chip{
-      background:#f1f5f9;
-      border:1px solid #e2e8f0;
+
+    .kickerRow{display:flex; gap:10px; flex-wrap:wrap; align-items:center}
+    .kicker{
+      padding:9px 12px;
       border-radius:999px;
-      padding:8px 10px;
+      background:#fff;
+      box-shadow: 0 10px 22px rgba(0,0,0,.10);
       font-weight:1000;
-      font-size:13px;
       display:inline-flex;
       gap:8px;
       align-items:center;
-      white-space:nowrap;
     }
-    .chip.ok{background:#ecfdf5;border-color:#bbf7d0;color:#065f46}
-    .chip.bad{background:#fff1f2;border-color:#fecaca;color:#9f1239}
-    .q{
-      font-weight:1000;
-      font-size:18px;
-      margin:6px 0 10px;
+
+    .hero h1{
+      margin:12px 0 8px;
+      font-size:38px;
+      letter-spacing:-.6px;
     }
-    .sentence{
-      background:#f8fafc;
-      border:1px dashed #cbd5e1;
-      border-radius:16px;
-      padding:12px;
-      font-weight:900;
+    .hero p{
+      margin:0;
+      color:var(--muted);
+      font-weight:700;
       line-height:1.7;
-      margin-bottom:12px;
+      font-size:15px;
     }
-    .options{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-    @media (max-width: 520px){ .options{grid-template-columns:1fr} }
-    .opt{
-      padding:12px 12px;
-      border-radius:16px;
-      border:2px solid #e2e8f0;
+
+    .heroCard{
       background:#fff;
-      cursor:pointer;
-      font-weight:1000;
-      transition:.12s transform ease, .12s border-color ease, .12s box-shadow ease;
-      box-shadow:0 8px 18px rgba(0,0,0,.06);
-      text-align:center;
+      border-radius:18px;
+      box-shadow: 0 14px 32px rgba(0,0,0,.12);
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      border:1px solid rgba(15,23,42,.06);
     }
-    .opt:hover{transform:translateY(-2px);border-color:#93c5fd;box-shadow:0 12px 22px rgba(0,0,0,.10)}
-    .opt.correct{border-color:#22c55e;background:#ecfdf5}
-    .opt.wrong{border-color:#ef4444;background:#fff1f2}
-    .hint{
-      margin-top:10px;
-      color:#475569;
+    .heroCard .line{
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center;
+    }
+    .tag{
+      padding:8px 10px;border-radius:999px;
       font-weight:900;
-      line-height:1.7;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color:#fff;
+      width:max-content;
     }
-    .side h5{margin:0 0 8px;font-weight:1000}
-    .side .mini{
-      margin:0 0 10px;color:#475569;font-weight:800;line-height:1.6
-    }
-    .bigBtn{
-      width:100%;
-      justify-content:center;
-      margin-top:8px;
-    }
-    .toast{
-      margin-top:10px;
+    .phone{
+      padding:10px 12px;
+      border-radius:14px;
       background:#0f172a;
       color:#fff;
-      border-radius:18px;
-      padding:12px;
       font-weight:1000;
-      display:none;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      justify-content:center;
     }
-    .footer{
-      margin-top:16px;
-      color:rgba(255,255,255,.9);
+    .phone a{color:#fff;text-decoration:none}
+
+    /* sections */
+    .section{margin-top:16px}
+    .sectionTitle{
+      display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+      margin:14px 0 10px;
+    }
+    .sectionTitle h2{margin:0;font-size:20px;font-weight:1000}
+    .hint{color:var(--muted);font-weight:800}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap:14px;
+    }
+    @media (max-width: 920px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      background:#fff;
+      border-radius:18px;
+      box-shadow:var(--shadow);
+      padding:16px;
+      border:1px solid rgba(15,23,42,.06);
+      position:relative;
+      overflow:hidden;
+    }
+    .card:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(260px 160px at 0% 0%, rgba(239,68,68,.10), transparent 60%),
+        radial-gradient(260px 160px at 100% 0%, rgba(37,99,235,.10), transparent 60%);
+      pointer-events:none;
+    }
+    .card > *{position:relative}
+
+    .row{
+      display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    .name{
+      font-weight:1000;
+      font-size:18px;
+    }
+    .sub{
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
+    }
+    .go{
+      border:0;
+      padding:12px 14px;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:1000;
+      color:#fff;
+      background: linear-gradient(135deg, var(--brand1), var(--brand2));
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      transition: transform .12s ease;
+      white-space:nowrap;
+    }
+    .go:hover{transform:translateY(-1px)}
+    .go.whatsapp{background: linear-gradient(135deg,#22c55e,#06b6d4)}
+    .go.youtube{background: linear-gradient(135deg,#ef4444,#f97316)}
+
+    .foot{
+      margin-top:18px;
       text-align:center;
-      font-weight:900;
+      color:var(--muted);
+      font-weight:800;
+      font-size:13px;
     }
   </style>
 </head>
@@ -321,244 +254,205 @@
 <body>
   <div class="wrap">
 
-    <div class="topbar">
+    <div class="top">
       <div class="brand">
-        <div class="logo">🎮</div>
+        <div class="logo">SK</div>
         <div>
-          <div style="font-size:16px;">Smart Kids With Connect</div>
-          <div style="font-size:12px;opacity:.9;font-weight:900">موقع الألعاب التعليمية</div>
+          <b>SMART KIDS WITH CONNECT</b>
+          <small>WhatsApp • YouTube • Games</small>
         </div>
       </div>
-      <div class="pillbar">
-        <div class="pill">✨ ممتعة</div>
-        <div class="pill">🧠 مفيدة</div>
-        <div class="pill">✅ مناسبة للأطفال</div>
+
+      <div class="actions">
+        <a class="btn primary" href="./games.html">🎮 صفحة الألعاب</a>
+        <a class="btn hot" target="_blank" rel="noreferrer" href="https://www.youtube.com/@hananeidhusseinmohammed6743">📺 قناة اليوتيوب</a>
       </div>
     </div>
 
-    <div class="hero">
+    <section class="hero">
       <div class="heroGrid">
         <div>
-          <h1>ألعاب الإنجليزية للأطفال 🎉</h1>
-          <p class="sub">اختاري لعبة… جاوبي… اكسبِ نقاط ⭐ — مع Miss Hanan</p>
-          <div class="ctaRow">
-            <a class="btn btnPrimary" href="#games">ابدئي الألعاب 🚀</a>
-            <a class="btn btnDark" href="https://www.youtube.com/@hananeidhusseinmohammed6743" target="_blank" rel="noopener">فيديوهات الشرح ▶</a>
+          <div class="kickerRow">
+            <div class="kicker">✨ تعلّم + لعب</div>
+            <div class="kicker">✅ مناسب للأطفال</div>
+            <div class="kicker">🏆 تفاعلي</div>
           </div>
-          <div class="miniBadges">
-            <div class="badge">⏱ 2–3 دقائق</div>
-            <div class="badge">⭐ نقاط ونجوم</div>
-            <div class="badge">🎯 قواعد + كلمات</div>
+
+          <h1>أهلاً بكم في Smart Kids ✨</h1>
+          <p>
+            هنا هتلاقي روابط مجموعات الواتساب لكل صف، وقوائم تشغيل الشرح على يوتيوب،
+            وكمان صفحة ألعاب تعليمية ممتعة (Grammar Games) للأطفال.
+          </p>
+        </div>
+
+        <div class="heroCard">
+          <div class="line">
+            <div class="tag">👩‍🏫 الأستاذة حنان عيد</div>
+          </div>
+          <div class="sub">مدرسة لغة إنجليزية • تعليم ممتع • تكنولوجيا وذكاء اصطناعي</div>
+          <div class="phone">📞 <a href="tel:01152283347">01152283347</a></div>
+          <div class="row">
+            <a class="go" href="./games.html">🎮 ابدأي بالألعاب</a>
+            <a class="go youtube" target="_blank" rel="noreferrer" href="https://youtube.com/playlist?list=PL_sa9Lgb70-mr6zTuaGX_Zl1N2UXACl9P&si=gDho822Srgtxs6n6">▶️ بلاي ليست</a>
           </div>
         </div>
-        <div class="cardRight">
-          <h3>🎁 لعبة اليوم</h3>
-          <p>ابدئي بلعبة <b>Past Simple</b>… اختاري الإجابة الصحيحة!  
-          كل إجابة صحيحة = <b>+1</b> ⭐</p>
-        </div>
       </div>
-    </div>
+    </section>
 
-    <div id="games" class="sectionTitle">🎲 اختاري لعبة</div>
-
-    <div class="grid">
-      <div class="gameCard">
-        <div class="tag">⏳ Grammar</div>
-        <h4>Past Simple — الماضي البسيط</h4>
-        <p>اختاري الإجابة الصحيحة (V2 / was / were) واحصلي على نقاط ⭐</p>
-        <button class="btn btnPrimary playBtn" onclick="openGame()">العب الآن ▶</button>
+    <!-- WhatsApp Groups -->
+    <section class="section">
+      <div class="sectionTitle">
+        <h2>روابط مجموعات الصفوف (WhatsApp)</h2>
+        <div class="hint">اضغطي “انضم للمجموعة”</div>
       </div>
 
-      <div class="gameCard">
-        <div class="tag">🔤 قريباً</div>
-        <h4>Word Builder — بناء الكلمات</h4>
-        <p>ركّبي الحروف لتكوين كلمات صحيحة… قريبًا</p>
-        <button class="btn btnDark playBtn" disabled style="opacity:.6;cursor:not-allowed">قريباً ✨</button>
-      </div>
-
-      <div class="gameCard">
-        <div class="tag">📚 قريباً</div>
-        <h4>Reading Sprint — قراءة سريعة</h4>
-        <p>اختاري الإجابة على سؤال فهم… قريبًا</p>
-        <button class="btn btnDark playBtn" disabled style="opacity:.6;cursor:not-allowed">قريباً ✨</button>
-      </div>
-    </div>
-
-    <div class="footer">© 2026 Miss Hanan — Smart Kids With Connect</div>
-  </div>
-
-  <!-- Modal -->
-  <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-label="Past Simple Game">
-    <div class="modal">
-      <div class="modalTop">
-        <div class="title">⏳ لعبة الماضي البسيط — Past Simple</div>
-        <button class="closeBtn" onclick="closeGame()">إغلاق ✖</button>
-      </div>
-
-      <div class="modalBody">
-        <div class="gameWrap">
-
-          <div class="panel">
-            <div class="hud">
-              <div class="chip">🧩 السؤال: <span id="qIndex">1</span>/<span id="qTotal">8</span></div>
-              <div class="chip ok">⭐ النقاط: <span id="score">0</span></div>
-              <div class="chip bad">❤️ المحاولات: <span id="lives">3</span></div>
+      <div class="grid">
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الأول</div>
+              <div class="sub">مجموعة واتساب</div>
             </div>
-
-            <div class="q" id="qTitle">اختاري الإجابة الصحيحة:</div>
-            <div class="sentence" id="sentence">...</div>
-
-            <div class="options" id="options"></div>
-
-            <div class="hint" id="hint">تلميح: Past Simple = V2 / was / were</div>
-
-            <div id="toast" class="toast"></div>
+            <a class="go whatsapp" target="_blank" rel="noreferrer" href="https://chat.whatsapp.com/FaMDeIP2uB81zxEJj9LA1M">انضم للمجموعة</a>
           </div>
+        </div>
 
-          <div class="panel side">
-            <h5>📌 تلميحات سريعة</h5>
-            <p class="mini">• <b>Yesterday / last</b> = غالباً Past Simple</p>
-            <p class="mini">• <b>He/She/I</b> مع “be” = <b>was</b></p>
-            <p class="mini">• <b>They/We/You</b> مع “be” = <b>were</b></p>
-            <p class="mini">• أفعال: <b>go → went</b> • <b>make → made</b></p>
-
-            <button class="btn btnDark bigBtn" onclick="restart()">🔁 ابدئي من جديد</button>
-            <button class="btn btnPrimary bigBtn" onclick="next(true)">⏭ تخطّي سؤال</button>
-
-            <div style="margin-top:10px;color:#64748b;font-weight:900;line-height:1.6;">
-              عند انتهاء القلوب ❤️ ستظهر نتيجتك النهائية.
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الثاني</div>
+              <div class="sub">مجموعة واتساب</div>
             </div>
+            <a class="go whatsapp" target="_blank" rel="noreferrer" href="https://chat.whatsapp.com/G9IVBiu8Cw0JV77zgE0lTT?mode=gi_t">انضم للمجموعة</a>
           </div>
+        </div>
 
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الثالث</div>
+              <div class="sub">مجموعة واتساب</div>
+            </div>
+            <a class="go whatsapp" target="_blank" rel="noreferrer" href="https://chat.whatsapp.com/HcKlZ0FrrwdBTM0rYo0Fxj">انضم للمجموعة</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الرابع</div>
+              <div class="sub">مجموعة واتساب</div>
+            </div>
+            <a class="go whatsapp" target="_blank" rel="noreferrer" href="https://chat.whatsapp.com/B7jg8QIgLUNCWBA8NH43dj">انضم للمجموعة</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الخامس</div>
+              <div class="sub">مجموعة واتساب</div>
+            </div>
+            <a class="go whatsapp" target="_blank" rel="noreferrer" href="https://chat.whatsapp.com/Jqjy5HkQqt0JwN0HSJd4kP">انضم للمجموعة</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف السادس</div>
+              <div class="sub">مجموعة واتساب</div>
+            </div>
+            <a class="go whatsapp" target="_blank" rel="noreferrer" href="https://chat.whatsapp.com/G3kLsZaM3ZO2mG3g5pE1cN">انضم للمجموعة</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الأول الإعدادي</div>
+              <div class="sub">مجموعة واتساب</div>
+            </div>
+            <a class="go whatsapp" target="_blank" rel="noreferrer" href="https://chat.whatsapp.com/JZELT2hCNIp1xBZVluWO5y">انضم للمجموعة</a>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- YouTube Playlists -->
+    <section class="section">
+      <div class="sectionTitle">
+        <h2>روابط فيديوهات الشرح (YouTube Playlists)</h2>
+        <div class="hint">اختاري صفك وشاهدي الشرح</div>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الأول</div>
+              <div class="sub">Playlist</div>
+            </div>
+            <a class="go youtube" target="_blank" rel="noreferrer" href="https://youtube.com/playlist?list=PL_sa9Lgb70-nQE39WuKmi7JljfOh4TZi_&si=bVu6sZuuqAa6i7Bj">افتح على يوتيوب</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الثاني</div>
+              <div class="sub">Playlist</div>
+            </div>
+            <a class="go youtube" target="_blank" rel="noreferrer" href="https://youtube.com/playlist?list=PL_sa9Lgb70-mi6c5yLAdKotHk1wlalEH-&si=TaryJTdPe_w_kVBj">افتح على يوتيوب</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الثالث</div>
+              <div class="sub">Playlist</div>
+            </div>
+            <a class="go youtube" target="_blank" rel="noreferrer" href="https://youtube.com/playlist?list=PL_sa9Lgb70-nw9gPQQHDnlC0aY8SnpM6-&si=YvgyNUKBbcuSTFqC">افتح على يوتيوب</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الرابع</div>
+              <div class="sub">Playlist</div>
+            </div>
+            <a class="go youtube" target="_blank" rel="noreferrer" href="https://youtube.com/playlist?list=PL_sa9Lgb70-ne_z6D2Q37bO4-i__FqIZH&si=5OmOWnG45wvhacS8">افتح على يوتيوب</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف الخامس</div>
+              <div class="sub">Playlist</div>
+            </div>
+            <a class="go youtube" target="_blank" rel="noreferrer" href="https://youtube.com/playlist?list=PL_sa9Lgb70-knxrdCRF3YJ_9J1_SoErOR&si=-1eGuN7-4spJSoIE">افتح على يوتيوب</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="row">
+            <div>
+              <div class="name">الصف السادس</div>
+              <div class="sub">Playlist</div>
+            </div>
+            <a class="go youtube" target="_blank" rel="noreferrer" href="https://youtube.com/playlist?list=PL_sa9Lgb70-mr6zTuaGX_Zl1N2UXACl9P&si=gDho822Srgtxs6n6">افتح على يوتيوب</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="foot">
+      © 2026 Smart Kids With Connect — Made with ❤️
     </div>
+
   </div>
-
-  <script>
-    const questions = [
-      { s: "Yesterday, I ____ to the park.", a: "went", o: ["go","went","going","goes"], h:"go → went (V2)" },
-      { s: "She ____ a cake last night.", a: "made", o: ["make","made","makes","making"], h:"make → made (V2)" },
-      { s: "They ____ happy yesterday.", a: "were", o: ["are","were","is","was"], h:"They = were" },
-      { s: "He ____ his homework two hours ago.", a: "finished", o: ["finish","finished","finishes","finishing"], h:"V2: finish → finished" },
-      { s: "I ____ at home yesterday.", a: "was", o: ["am","is","was","were"], h:"I = was" },
-      { s: "We ____ a movie last week.", a: "watched", o: ["watch","watched","watches","watching"], h:"watch → watched" },
-      { s: "Sara ____ to school by bus yesterday.", a: "went", o: ["go","went","goes","going"], h:"Yesterday = Past Simple" },
-      { s: "You ____ late yesterday.", a: "were", o: ["are","is","was","were"], h:"You = were" },
-    ];
-
-    let idx = 0;
-    let score = 0;
-    let lives = 3;
-    let locked = false;
-
-    const overlay = document.getElementById("overlay");
-    const qIndex = document.getElementById("qIndex");
-    const qTotal = document.getElementById("qTotal");
-    const scoreEl = document.getElementById("score");
-    const livesEl = document.getElementById("lives");
-    const sentenceEl = document.getElementById("sentence");
-    const optionsEl = document.getElementById("options");
-    const hintEl = document.getElementById("hint");
-    const toastEl = document.getElementById("toast");
-
-    qTotal.textContent = questions.length;
-
-    function openGame(){
-      overlay.style.display = "flex";
-      document.body.style.overflow = "hidden";
-      restart();
-    }
-    function closeGame(){
-      overlay.style.display = "none";
-      document.body.style.overflow = "auto";
-    }
-
-    function render(){
-      locked = false;
-      toastEl.style.display = "none";
-      const q = questions[idx];
-      qIndex.textContent = (idx + 1);
-      scoreEl.textContent = score;
-      livesEl.textContent = lives;
-      sentenceEl.textContent = q.s;
-      hintEl.textContent = "تلميح: " + q.h;
-
-      optionsEl.innerHTML = "";
-      q.o.forEach(opt => {
-        const b = document.createElement("button");
-        b.className = "opt";
-        b.textContent = opt;
-        b.onclick = () => choose(opt, b);
-        optionsEl.appendChild(b);
-      });
-    }
-
-    function choose(opt, btn){
-      if(locked) return;
-      locked = true;
-
-      const q = questions[idx];
-      const buttons = [...optionsEl.querySelectorAll(".opt")];
-
-      const correctBtn = buttons.find(b => b.textContent === q.a);
-      if(opt === q.a){
-        score++;
-        btn.classList.add("correct");
-        toast("🎉 ممتاز! +1 ⭐", true);
-      }else{
-        lives--;
-        btn.classList.add("wrong");
-        if(correctBtn) correctBtn.classList.add("correct");
-        toast("❌ حاول تاني! -1 ❤️", false);
-      }
-
-      scoreEl.textContent = score;
-      livesEl.textContent = lives;
-
-      setTimeout(() => {
-        if(lives <= 0){
-          finish();
-        }else{
-          idx = (idx + 1) % questions.length;
-          render();
-        }
-      }, 900);
-    }
-
-    function toast(msg, ok){
-      toastEl.textContent = msg;
-      toastEl.style.display = "block";
-      toastEl.style.background = ok ? "#16a34a" : "#e11d48";
-    }
-
-    function finish(){
-      sentenceEl.textContent = "✅ انتهت اللعبة!";
-      optionsEl.innerHTML = "";
-      hintEl.textContent = "نتيجتك: " + score + " ⭐";
-      toastEl.style.display = "block";
-      toastEl.style.background = "#0f172a";
-      toastEl.textContent = "👏 شاطرة! اضغطي (ابدئي من جديد) للعب مرة أخرى.";
-      locked = true;
-    }
-
-    function restart(){
-      idx = 0;
-      score = 0;
-      lives = 3;
-      render();
-    }
-
-    function next(skip){
-      if(locked) return;
-      idx = (idx + 1) % questions.length;
-      render();
-    }
-
-    // Close on ESC
-    document.addEventListener("keydown", (e) => {
-      if(e.key === "Escape" && overlay.style.display === "flex") closeGame();
-    });
-  </script>
 </body>
 </html>
